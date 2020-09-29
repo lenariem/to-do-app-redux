@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
-import { MyContext } from './App';
+import React from 'react'
 import ToDoneItem from './ToDoneItem';
 import {connect} from "react-redux";
 
- function ToDonesContainer({state}) {
+function ToDonesContainer({state}) {
+
     const toDones =  state.filter(item => item.done===true)
 
-    /* const {toDones} = useContext(MyContext); */
     const toDonesItems = toDones.map(task => {
         return (
             <ToDoneItem key ={task.id} taskProps={task} />

@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useReducer} from 'react';
-import {Reducer} from "./Reducer";
+import React, {useEffect, createContext} from 'react';
 import "../css/App.scss";
 import Navigation from "./Navigation";
 import ToDosContainer from "./ToDosContainer";
@@ -9,12 +8,12 @@ import {HashRouter,Switch,Route} from "react-router-dom";
 import NotFound from './NotFound';
 import {connect} from "react-redux";
 
-export const MyContext = React.createContext(null);
-
+export const MyContext = createContext(null);
 
 function App({dispatch, state}) {
 
-console.log(state);
+
+  //Local Storage
   useEffect(() => {
     let storedItems = localStorage.getItem("to-do-app");
     let convertedToOriginal = JSON.parse(storedItems);
@@ -27,40 +26,7 @@ console.log(state);
     localStorage.setItem("to-do-app", JSON.stringify(state))
   }, [state])
 
-
-  
-  
-  /* const updateItem = (id) => {
-      const updatedItems = items.map(item => {
-        if (item.id === id) {
-          item.done = !item.done
-          return item
-        } else {
-          return item
-        }
-      })
-      setItems(updatedItems) 
-    }
-
-  const AddItem = (InputText) => {
-      const item = {
-        id: items.length,
-        text: InputText,
-        done: false
-      }
-    setItems([item, ...items])
-    }
-
-    
-  const deleteItem = (id) => {
-      const updatedItem = items.filter(item =>  item.id !== id)
-      setItems(updatedItem) 
-  } */
-  
-
-    
     return (
-     
       <HashRouter>
         <div className="app">
           <Navigation />
@@ -78,6 +44,8 @@ console.log(state);
     )
   }
 
+  /* the same
+  const MapsStateToProps = (state) => ({state})
+  export default connect(MapsStateToProps) (App)
+  */
   export default connect((state) =>({state}) )(App)
-
-

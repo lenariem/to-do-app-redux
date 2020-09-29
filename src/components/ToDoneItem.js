@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import { MyContext } from './App'
-import {connect} from "react-redux"
+import React from 'react';
+import {connect} from "react-redux";
 
 function ToDoneItem({dispatch, taskProps}) {
-   /*  const {dispatch} = useContext(MyContext) */
+
     return (
         <div className="todones-item">
             <p>{taskProps.text}</p>

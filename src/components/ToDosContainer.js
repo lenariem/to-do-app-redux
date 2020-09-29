@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
-import { MyContext } from "./App";
+import React, { useState } from "react";
 import ToDoItem from "./ToDoItem";
 import {connect} from "react-redux"
 
-function ToDosContainer(/* {toDos} */{dispatch, state}) {
-  //possible to use without constructor
+function ToDosContainer({dispatch, state}) {
+  
   const [inputText, setInputText] = useState("");
 
   const formSubmitted = (e) => {
