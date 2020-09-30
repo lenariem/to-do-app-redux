@@ -1,4 +1,4 @@
-#### This App is written in React using Redux
+#### This App is written in React using Redux and Local Storage
 
 ### In this app user can create and manage the own to-do list. 
 
