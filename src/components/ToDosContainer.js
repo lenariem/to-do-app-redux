@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ToDoItem from "./ToDoItem";
-import {connect} from "react-redux"
+import {connect} from "react-redux";
+//import {useSelector, useDispatch} from "react-redux";
 
 function ToDosContainer({dispatch, state}) {
   
@@ -47,5 +48,12 @@ function ToDosContainer({dispatch, state}) {
     </div>
   );
 }
+
+
+  /*the same with hooks
+  const state = useSelector(state=>state);
+  const dispatch= useDispatch();
+  */
+
 const MapsStateToProps = (state) => ({state})
 export default connect(MapsStateToProps) (ToDosContainer)
